@@ -60,13 +60,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SpecFlow.Reporting, Version=0.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SpecFlow.Reporting, Version=0.4.6.6, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\SpecFlow.Reporting.0.4.6.0\lib\net40\SpecFlow.Reporting.dll</HintPath>
+      <HintPath>..\packages\SpecFlow.Reporting.0.4.6.6\lib\net40\SpecFlow.Reporting.dll</HintPath>
     </Reference>
-    <Reference Include="SpecFlow.Reporting.Json, Version=0.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SpecFlow.Reporting.Json, Version=0.4.6.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\SpecFlow.Reporting.Json.0.4.5.0\lib\net40\SpecFlow.Reporting.Json.dll</HintPath>
+      <HintPath>..\packages\SpecFlow.Reporting.Json.0.4.6.7\lib\net40\SpecFlow.Reporting.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -100,7 +100,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="SpecFlow.Reporting.WebApp.nuspec" />
+    <None Include="SpecFlow.Reporting.WebApp.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
