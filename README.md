@@ -1,4 +1,4 @@
-# SpecFlow test results as Plain Text [![Build status](https://ci.appveyor.com/api/projects/status/929xe2ohucewlkkj)](https://ci.appveyor.com/project/TimSchlechter/specflow-reporting-webapp)
+# WebApp reporter [![Build status](https://ci.appveyor.com/api/projects/status/929xe2ohucewlkkj)](https://ci.appveyor.com/project/TimSchlechter/specflow-reporting-webapp)
 
 NuGet: [SpecFlow.Reporting.WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/)
 
