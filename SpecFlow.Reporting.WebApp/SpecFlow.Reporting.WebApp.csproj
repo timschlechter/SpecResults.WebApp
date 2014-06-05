@@ -52,17 +52,15 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MarkdownDeep, Version=1.5.4615.26275, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\MarkdownDeep.NET.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
+    <Reference Include="MarkdownDeep">
+      <HintPath>..\packages\MarkdownDeep.NET.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SpecFlow.Reporting, Version=0.4.6.6, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SpecFlow.Reporting, Version=0.4.6.13, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SpecFlow.Reporting.0.4.6.6\lib\net40\SpecFlow.Reporting.dll</HintPath>
+      <HintPath>..\packages\SpecFlow.Reporting.0.4.6.13\lib\net40\SpecFlow.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="SpecFlow.Reporting.Json, Version=0.4.6.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -75,9 +73,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -90,20 +87,48 @@
     <Compile Include="WebAppReporter.cs" />
     <Compile Include="WebAppReporterSettings.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="dist\css\styles.min.css" />
+    <Content Include="src\app.js" />
+    <Content Include="src\app.routes.js" />
+    <Content Include="src\directives\result-badge.js" />
+    <Content Include="src\directives\result-badge.tpl.html" />
+    <Content Include="src\index.html" />
+    <Content Include="src\reportService.js" />
+    <Content Include="src\styles.css">
+      <DependentUpon>styles.less</DependentUpon>
+    </Content>
+    <Content Include="src\styles.min.css">
+      <DependentUpon>styles.less</DependentUpon>
+    </Content>
+    <Content Include="src\templates.js" />
+    <Content Include="src\views\dashboard.controller.js" />
+    <Content Include="src\views\dashboard.tpl.html" />
+    <Content Include="src\views\scenario.controller.js" />
+    <Content Include="src\views\scenario.tpl.html" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include=".bin\bower.cmd" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\grunt.cmd" />
+    <None Include=".bin\node.cmd" />
+    <None Include=".bin\npm.cmd" />
     <None Include="App.config" />
+    <None Include="dist\js\scripts.min.map" />
     <None Include="packages.config" />
     <None Include="SpecFlow.Reporting.WebApp.nuspec">
       <SubType>Designer</SubType>
     </None>
+    <None Include="src\styles.less" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
@@ -117,4 +142,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="BeforeBuild">
+    <Exec Command=".bin\npm install" />
+    <Exec Command=".bin\bower install" />
+    <Exec Command=".bin\grunt build" />
+  </Target>
 </Project>

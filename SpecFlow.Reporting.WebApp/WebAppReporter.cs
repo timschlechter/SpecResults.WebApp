@@ -32,6 +32,9 @@ namespace SpecFlow.Reporting.WebApp
 
         public void WriteToFolder(string folderPath, bool clearDirectory = false)
         {
+            var jsPath = Path.Combine(folderPath, "js");
+            var cssPath = Path.Combine(folderPath, "css");
+
             if (clearDirectory && Directory.Exists(folderPath))
             {
                 foreach (var dir in Directory.GetDirectories(folderPath))
@@ -50,27 +53,42 @@ namespace SpecFlow.Reporting.WebApp
                 Directory.CreateDirectory(folderPath);
             }
 
+            if (!Directory.Exists(jsPath))
+            {
+                Directory.CreateDirectory(jsPath);
+            }
+            if (!Directory.Exists(cssPath))
+            {
+                Directory.CreateDirectory(cssPath);
+            }
+
             // index.html
             File.WriteAllText(
                 path: Path.Combine(folderPath, "index.html"),
-                contents: ApplySettings(Resources.index)
+                contents: ApplySettings(Resources.index_html)
             );
 
-            // styles.css
+            // css/styles.min.css
             File.WriteAllText(
-                path: Path.Combine(folderPath, "styles.css"),
-                contents: Resources.styles
+                path: Path.Combine(cssPath, "styles.min.css"),
+                contents: Resources.styles_min_css
             );
 
-            // scripts.js
+            // js/scripts.min.js
             File.WriteAllText(
-                path: Path.Combine(folderPath, "scripts.js"),
-                contents: ApplySettings(Resources.scripts)
+                path: Path.Combine(jsPath, "scripts.min.js"),
+                contents: ApplySettings(Resources.scripts_min_js)
             );
 
-            // report.js
+            // js/scripts.min.js.map
             File.WriteAllText(
-                path: Path.Combine(folderPath, "report.js"),
+                path: Path.Combine(jsPath, "scripts.min.js.map"),
+                contents: ApplySettings(Resources.scripts_min_map)
+            );
+
+            // js/report.js
+            File.WriteAllText(
+                path: Path.Combine(jsPath, "report.js"),
                 contents: string.Format("var report = {0};", JsonReporter.WriteToString())
             );
 
@@ -130,7 +148,7 @@ namespace SpecFlow.Reporting.WebApp
             {
                 var pattern = "(?:<!-- step-details-marker: begin -->)(.*?)(?:<!-- step-details-marker: end -->)";
 
-                var replacement = File.ReadAllText(Settings.StepDetailsTemplateFile) + "'+\"";
+                var replacement = File.ReadAllText(Settings.StepDetailsTemplateFile);
                 replacement = Regex.Replace(replacement, "(\r|\n)", "\\n");
                 replacement = replacement.Replace("'", "\'");
 

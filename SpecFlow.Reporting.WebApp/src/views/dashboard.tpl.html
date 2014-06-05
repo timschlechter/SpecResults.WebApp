@@ -23,8 +23,8 @@
                 <h3>Scenarios</h3>
                 <div class="list-group">
                     <a ng-repeat="scenario in feature.scenarios" class="list-group-item" href="#/features/{{feature.id}}/scenarios/{{scenario.id}}">
-						{{scenario.title}}<small class="text-muted"> <em>completed in {{scenario.duration}} ms</em></small>
-						<result-badge result="feature.result"></result-badge>
+						{{scenario.title}} <small class="text-muted"><em>completed in {{scenario.duration}} ms</em></small>
+						<result-badge result="scenario.result"></result-badge>
 					</a>
                 </div>
             </accordion-group>

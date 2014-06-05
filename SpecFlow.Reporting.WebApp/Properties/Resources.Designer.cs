@@ -105,23 +105,24 @@ namespace SpecFlow.Reporting.WebApp.Properties {
         ///&lt;html ng-app=&quot;app&quot;&gt;
         ///
         ///&lt;head&gt;
-        ///    &lt;title&gt;__TITLE__&lt;/title&gt;
-        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-        ///    &lt;link href=&quot;styles.css?v=__VERSION__&quot; rel=&quot;stylesheet&quot;&gt;
+        ///	&lt;title&gt;__TITLE__&lt;/title&gt;
+        ///	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        ///	&lt;link href=&quot;css/styles.css?v=__VERSION__&quot; rel=&quot;stylesheet&quot;&gt;
+        ///	&lt;style type=&quot;text/css&quot;&gt;
+        ///	 __CSS__
+        ///	&lt;/style&gt;
         ///&lt;/head&gt;
         ///
         ///&lt;body ng-view&gt;
         ///
-        ///    &lt;script src=&quot;scripts.js?v=__VERSION__&quot;&gt;&lt;/script&gt;
-        ///    &lt;script src=&quot;report.js?v=__VERSION__&quot;&gt;&lt;/script&gt;
+        ///	&lt;script src=&quot;js/scripts.js?v=__VERSION__&quot;&gt;&lt;/script&gt;
+        ///	&lt;script src=&quot;js/report.js?v=__VERSION__&quot;&gt;&lt;/script&gt;
         ///&lt;/body&gt;
-        ///
-        ///&lt;/html&gt;
-        ///.
+        ///&lt;/html&gt;.
         /// </summary>
-        internal static string index {
+        internal static string index_html {
             get {
-                return ResourceManager.GetString("index", resourceCulture);
+                return ResourceManager.GetString("index_html", resourceCulture);
             }
         }
         
@@ -130,20 +131,30 @@ namespace SpecFlow.Reporting.WebApp.Properties {
         /// * SpecFlow.Reporting.WebApp v0.0.0 by Tim Schlechter
         /// * 
         /// */
-        ///(function(global,factory){if(typeof module===&quot;object&quot;&amp;&amp;typeof module.exports===&quot;object&quot;){module.exports=global.document?factory(global,true):function(w){if(!w.document){throw new Error(&quot;jQuery requires a window with a document&quot;)}return factory(w)}}else{factory(global)}})(typeof window!==&quot;undefined&quot;?window:this,function(window,noGlobal){var arr=[];var slice=arr.slice;var concat=arr.concat;var push=arr.push;var indexOf=arr.indexOf;var class2 [rest of string was truncated]&quot;;.
+        ///
+        ///!function(a,b){&quot;object&quot;==typeof module&amp;&amp;&quot;object&quot;==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error(&quot;jQuery requires a window with a document&quot;);return b(a)}:b(a)}(&quot;undefined&quot;!=typeof window?window:this,function(a,b){function c(a){var b=a.length,c=_.type(a);return&quot;function&quot;===c||_.isWindow(a)?!1:1===a.nodeType&amp;&amp;b?!0:&quot;array&quot;===c||0===b||&quot;number&quot;==typeof b&amp;&amp;b&gt;0&amp;&amp;b-1 in a}function d(a,b,c){if(_.isF [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string scripts {
+        internal static string scripts_min_js {
             get {
-                return ResourceManager.GetString("scripts", resourceCulture);
+                return ResourceManager.GetString("scripts_min_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;version&quot;:3,&quot;file&quot;:&quot;scripts.min.js&quot;,&quot;sources&quot;:[&quot;..\\..\\bower_components\\jquery\\dist\\jquery.js&quot;,&quot;..\\..\\bower_components\\lodash\\dist\\lodash.js&quot;,&quot;..\\..\\bower_components\\angular\\angular.js&quot;,&quot;..\\..\\bower_components\\angular-route\\angular-route.js&quot;,&quot;..\\..\\bower_components\\uri.js\\src\\URI.js&quot;,&quot;..\\..\\bower_components\\bootstrap\\js\\collapse.js&quot;,&quot;..\\..\\bower_components\\bootstrap\\js\\dropdown.js&quot;,&quot;..\\..\\bower_components\\angular-ui-bootstrap-bower\\ui-bootstrap-tpls.js&quot;,&quot;..\\..\\src\\app [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string scripts_min_map {
+            get {
+                return ResourceManager.GetString("scripts_min_map", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to /*! normalize.css v3.0.0 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-wei [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string styles {
+        internal static string styles_min_css {
             get {
-                return ResourceManager.GetString("styles", resourceCulture);
+                return ResourceManager.GetString("styles_min_css", resourceCulture);
             }
         }
     }

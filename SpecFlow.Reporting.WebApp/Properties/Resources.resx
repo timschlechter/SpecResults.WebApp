@@ -130,13 +130,16 @@
   <data name="glyphicons_halflings_regular_woff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dist\fonts\glyphicons-halflings-regular.woff;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="index" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="index_html" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dist\index.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="scripts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\dist\scripts.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="scripts_min_js" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dist\js\scripts.min.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="styles" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\dist\styles.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="scripts_min_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dist\js\scripts.min.map;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="styles_min_css" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dist\css\styles.min.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

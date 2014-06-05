@@ -11,13 +11,14 @@ module.exports = function (grunt) {
 		uglify: {
 			build: {
 				options: {
-					compress: false,
-					mangle: false,
+					compress: true,
+					mangle: true,
+				    sourceMap: true,
 					banner: '<%= pkg.banner %>'
 				},
 
 				files: {
-					'dist/scripts.js': [
+					'dist/js/scripts.min.js': [
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/lodash/dist/lodash.js',
                         'bower_components/angular/angular.js',
@@ -76,10 +77,10 @@ module.exports = function (grunt) {
 					compress: true
 				},
 				files: {
-					"dist/styles.css": [
+					"dist/css/styles.min.css": [
                         'bower_components/bootstrap/less/bootstrap.less',
                         'bower_components/bootstrap/less/theme.less',
-                        'src/styles/styles.less'
+                        'src/styles.less'
 					]
 				}
 			}
