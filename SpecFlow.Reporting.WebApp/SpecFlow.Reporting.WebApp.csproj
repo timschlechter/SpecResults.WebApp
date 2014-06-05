@@ -88,7 +88,6 @@
     <Compile Include="WebAppReporterSettings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dist\css\styles.min.css" />
     <Content Include="src\app.js" />
     <Content Include="src\app.routes.js" />
     <Content Include="src\directives\result-badge.js" />
@@ -121,7 +120,6 @@
     <None Include=".bin\node.cmd" />
     <None Include=".bin\npm.cmd" />
     <None Include="App.config" />
-    <None Include="dist\js\scripts.min.map" />
     <None Include="packages.config" />
     <None Include="SpecFlow.Reporting.WebApp.nuspec">
       <SubType>Designer</SubType>
