@@ -94,7 +94,7 @@
     <Content Include="src\directives\result-badge.js" />
     <Content Include="src\directives\result-badge.tpl.html" />
     <Content Include="src\index.html" />
-    <Content Include="src\reportService.js" />
+    <Content Include="src\report.js" />
     <Content Include="src\styles.css">
       <DependentUpon>styles.less</DependentUpon>
     </Content>

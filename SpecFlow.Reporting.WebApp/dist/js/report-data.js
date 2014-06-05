@@ -1,4 +1,4 @@
-var report = {
+var reportData = {
     "generator": "SpecFlow.Reporting.Json.JsonReporter",
     "features": [
       {

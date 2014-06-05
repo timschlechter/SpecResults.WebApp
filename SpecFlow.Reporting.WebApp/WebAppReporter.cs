@@ -86,9 +86,9 @@ namespace SpecFlow.Reporting.WebApp
                 contents: ApplySettings(Resources.scripts_min_map)
             );
 
-            // js/report.js
+            // js/reportdata.js
             File.WriteAllText(
-                path: Path.Combine(jsPath, "report.js"),
+                path: Path.Combine(jsPath, "report-data.js"),
                 contents: string.Format("var report = {0};", JsonReporter.WriteToString())
             );
 
