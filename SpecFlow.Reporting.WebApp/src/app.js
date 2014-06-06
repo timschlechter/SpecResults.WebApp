@@ -22,5 +22,7 @@
         return function(text) {
             return $sce.trustAsHtml(text);
         };
-    }]);
+    }]).filter('encodeURIComponent', function () {
+        return window.encodeURIComponent;
+    });
 })(this.angular);

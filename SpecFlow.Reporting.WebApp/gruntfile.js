@@ -4,6 +4,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-angular-templates');
 	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -11,10 +12,10 @@ module.exports = function (grunt) {
 		uglify: {
 			build: {
 				options: {
-					compress: true,
-					mangle: true,
-				    sourceMap: true,
-					banner: '<%= pkg.banner %>'
+					compress: false,
+					mangle: false,
+				    banner: '<%= pkg.banner %>',
+                    beautify: true
 				},
 
 				files: {
@@ -27,9 +28,11 @@ module.exports = function (grunt) {
                         'bower_components/bootstrap/js/collapse.js',
                         'bower_components/bootstrap/js/dropdown.js',
                         'bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
+                        'bower_components/md5-jkmyers/md5.js',
                         'src/app.js',
                         'src/app.routes.js',
-                        'src/reportService.js',
+                        'src/Report.js',
+                        'src/state.js',
                         'src/directives/result-badge.js',
                         'src/views/dashboard.controller.js',
                         'src/views/scenario.controller.js',
@@ -85,7 +88,14 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
+		karma: {
+		    unit: {
+		        configFile: 'test/unit/karma.conf.js'
+		    }
+		}
 	});
 
 	grunt.registerTask('build', ['ngtemplates', 'uglify', 'copy', 'less']);
+	grunt.registerTask('unit', ['karma']);
 };
