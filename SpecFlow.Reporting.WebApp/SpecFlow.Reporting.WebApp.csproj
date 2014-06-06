@@ -95,12 +95,12 @@
     <None Include="src\directives\result-badge.tpl.html" />
     <None Include="src\index.html" />
     <None Include="src\report.js" />
-    <Content Include="src\styles.css">
+    <None Include="src\styles.css">
       <DependentUpon>styles.less</DependentUpon>
-    </Content>
-    <Content Include="src\styles.min.css">
+    </None>
+    <None Include="src\styles.min.css">
       <DependentUpon>styles.less</DependentUpon>
-    </Content>
+    </None>
     <None Include="src\templates.js" />
     <None Include="src\views\dashboard.controller.js" />
     <None Include="src\views\dashboard.tpl.html" />
@@ -115,11 +115,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".bin\bower.cmd" />
-    <None Include=".bin\git.cmd" />
-    <None Include=".bin\grunt.cmd" />
-    <None Include=".bin\node.cmd" />
-    <None Include=".bin\npm.cmd" />
     <None Include="App.config" />
     <None Include="bower.json" />
     <None Include="package.json" />
