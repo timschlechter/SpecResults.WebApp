@@ -148,7 +148,7 @@ namespace SpecFlow.Reporting.WebApp
             {
                 var pattern = "(?:<!-- step-details-marker: begin -->)(.*?)(?:<!-- step-details-marker: end -->)";
 
-                var replacement = File.ReadAllText(Settings.StepDetailsTemplateFile);
+				var replacement = File.ReadAllText(Settings.StepDetailsTemplateFile) + "'+\""; ;
                 replacement = Regex.Replace(replacement, "(\r|\n)", "\\n");
                 replacement = replacement.Replace("'", "\'");
 
