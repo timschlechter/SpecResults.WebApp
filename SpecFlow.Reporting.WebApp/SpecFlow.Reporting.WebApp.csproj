@@ -89,23 +89,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="gruntfile.js" />
-    <Content Include="src\app.js" />
-    <Content Include="src\app.routes.js" />
-    <Content Include="src\directives\result-badge.js" />
-    <Content Include="src\directives\result-badge.tpl.html" />
-    <Content Include="src\index.html" />
-    <Content Include="src\report.js" />
+    <None Include="src\app.js" />
+    <None Include="src\app.routes.js" />
+    <None Include="src\directives\result-badge.js" />
+    <None Include="src\directives\result-badge.tpl.html" />
+    <None Include="src\index.html" />
+    <None Include="src\report.js" />
     <Content Include="src\styles.css">
       <DependentUpon>styles.less</DependentUpon>
     </Content>
     <Content Include="src\styles.min.css">
       <DependentUpon>styles.less</DependentUpon>
     </Content>
-    <Content Include="src\templates.js" />
-    <Content Include="src\views\dashboard.controller.js" />
-    <Content Include="src\views\dashboard.tpl.html" />
-    <Content Include="src\views\scenario.controller.js" />
-    <Content Include="src\views\scenario.tpl.html" />
+    <None Include="src\templates.js" />
+    <None Include="src\views\dashboard.controller.js" />
+    <None Include="src\views\dashboard.tpl.html" />
+    <None Include="src\views\scenario.controller.js" />
+    <None Include="src\views\scenario.tpl.html" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -143,9 +143,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="BeforeBuild">
+  <!--Target Name="BeforeBuild">
     <Exec Command=".bin\npm install" />
     <Exec Command=".bin\bower install" />
     <Exec Command=".bin\grunt build" />
-  </Target>
+  </Target-->
 </Project>
