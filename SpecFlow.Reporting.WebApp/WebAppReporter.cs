@@ -80,9 +80,9 @@ namespace SpecFlow.Reporting.WebApp
                 contents: ApplySettings(Resources.scripts_min_js)
             );
 
-            // js/scripts.min.js.map
+            // js/scripts.min.map
             File.WriteAllText(
-                path: Path.Combine(jsPath, "scripts.min.js.map"),
+                path: Path.Combine(jsPath, "scripts.min.map"),
                 contents: ApplySettings(Resources.scripts_min_map)
             );
 
@@ -92,6 +92,11 @@ namespace SpecFlow.Reporting.WebApp
                 contents: string.Format("var reportData = {0};", JsonReporter.WriteToString())
             );
 
+            WriteFontFiles(folderPath);
+        }
+
+        private static void WriteFontFiles(string folderPath)
+        {
             var fontsPath = Path.Combine(folderPath, "fonts");
             if (!Directory.Exists(fontsPath))
             {
@@ -123,7 +128,9 @@ namespace SpecFlow.Reporting.WebApp
         {
             contents = contents
                 .Replace("__TITLE__", Settings.GetTitle())
-                .Replace("__VERSION__", Settings.GetVersion());
+                .Replace("__VERSION__", Settings.GetVersion())
+                .Replace("__CULTURE__", Settings.GetCulture());
+            
 
             // Inject custom css
             string css = "";
