@@ -137,7 +137,7 @@ namespace SpecFlow.Reporting.WebApp
             string css = "";
             if (!string.IsNullOrEmpty(Settings.CssFile))
             {
-                css = File.ReadAllText(Settings.CssFile);
+                css = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.CssFile));
             }
             contents = contents.Replace("__CSS__", css);
 
