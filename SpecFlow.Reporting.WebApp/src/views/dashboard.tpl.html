@@ -21,7 +21,7 @@
             <accordion-group ng-repeat="feature in report.features" is-open="feature.$$isOpen">
                 <accordion-heading>
                     {{feature.title}} <small class="text-muted"><em>completed in {{feature.duration}} ms</em></small>
-					<result-badge result="feature.result"></result-badge>
+					<result-badge report-item="feature"></result-badge>
                 </accordion-heading>
 
                 <div ng-bind-html="feature.description_html | trusted">
@@ -31,7 +31,7 @@
                 <div class="list-group">
                     <a ng-repeat="scenario in feature.scenarios" class="list-group-item" href="#/features/{{feature.id|encodeURIComponent}}/scenarios/{{scenario.id|encodeURIComponent}}">
 						{{scenario.title}} <small class="text-muted"><em>completed in {{scenario.duration}} ms</em></small>
-						<result-badge result="scenario.result"></result-badge>
+						<result-badge report-item="scenario"></result-badge>
 					</a>
                 </div>
             </accordion-group>

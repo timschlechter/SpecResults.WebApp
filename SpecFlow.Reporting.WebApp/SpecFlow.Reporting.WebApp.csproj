@@ -94,7 +94,7 @@
     <None Include="src\directives\result-badge.js" />
     <None Include="src\directives\result-badge.tpl.html" />
     <None Include="src\index.html" />
-    <None Include="src\report.js" />
+    <None Include="src\model\Report.js" />
     <None Include="src\styles.css">
       <DependentUpon>styles.less</DependentUpon>
     </None>
@@ -124,7 +124,10 @@
     </None>
     <None Include="src\styles.less" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="src\templates\exception-details-modal.tpl.html" />
+    <Content Include="src\values\gherkin-i18n.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
