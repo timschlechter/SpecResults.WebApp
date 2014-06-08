@@ -17,15 +17,18 @@ namespace SpecFlow.Reporting.WebApp.Showcase
         {
             var webApp = new WebAppReporter();
             webApp.Settings.Title = "WebAppReporter Showcase";
-            webApp.Settings.StepDetailsTemplateFile = @"templates\step-details.tpl.html";
-            webApp.Settings.CssFile = @"templates\styles.css";
-            webApp.Settings.DashboardTextFile = @"templates\dashboard-text.md";
+            webApp.Settings.StepDetailsTemplateFile = GetAbsolutePath(@"templates\step-details.tpl.html");
+            webApp.Settings.CssFile = GetAbsolutePath(@"templates\styles.css");
+            webApp.Settings.DashboardTextFile = GetAbsolutePath(@"templates\dashboard-text.md");
 
             Reporters.Add(webApp);
 
-            if (Directory.Exists("screenshots"))
+            var screenshotFolder = GetAbsolutePath("screenshots");
+            var appFolder = GetAbsolutePath("app");
+
+            if (Directory.Exists(screenshotFolder))
             {
-                Directory.Delete("screenshots", true);
+                Directory.Delete(screenshotFolder, true);
             }
 
             Reporters.FinishedStep += (sender, args) =>
@@ -43,13 +46,18 @@ namespace SpecFlow.Reporting.WebApp.Showcase
                 var reporter = args.Reporter as WebAppReporter;
                 if (reporter != null)
                 {
-                    reporter.WriteToFolder("app", true);
+                    reporter.WriteToFolder(appFolder, true);
 
-                    Directory.Move("screenshots", @"app\screenshots");
+                    Directory.Move(screenshotFolder, Path.Combine(appFolder, "screenshots"));
                 }
             };
 
             WebDriver = new FirefoxDriver();
+        }
+
+        private static string GetAbsolutePath(string path)
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, path);
         }
 
         [AfterTestRun]
