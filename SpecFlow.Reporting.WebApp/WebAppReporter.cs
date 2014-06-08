@@ -1,5 +1,6 @@
 ﻿using SpecFlow.Reporting.Json;
 using SpecFlow.Reporting.WebApp.Properties;
+using System;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -144,7 +145,7 @@ namespace SpecFlow.Reporting.WebApp
             string dashboardText = "";
             if (!string.IsNullOrEmpty(Settings.DashboardTextFile))
             {
-                dashboardText = File.ReadAllText(Settings.DashboardTextFile);
+                dashboardText = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.DashboardTextFile));
                 dashboardText = Markdown.ToHtml(dashboardText);
                 dashboardText = Regex.Replace(dashboardText, "(\r|\n)", "\\n");
             }
@@ -155,7 +156,7 @@ namespace SpecFlow.Reporting.WebApp
             {
                 var pattern = "(?:<!-- step-details-marker: begin -->)(.*?)(?:<!-- step-details-marker: end -->)";
 
-				var replacement = File.ReadAllText(Settings.StepDetailsTemplateFile) + "'+\""; ;
+				var replacement = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.StepDetailsTemplateFile)) + "'+\""; ;
                 replacement = Regex.Replace(replacement, "(\r|\n)", "\\n");
                 replacement = replacement.Replace("'", "\'");
 
