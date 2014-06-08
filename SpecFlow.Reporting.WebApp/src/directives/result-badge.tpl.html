@@ -1,1 +1,12 @@
-<span class="label pull-right" ng-class="{ 'label-success': result == 'OK', 'label-danger': result == 'Error', 'label-warning': result == 'Pending', 'label-default': result == 'NotRun' }">{{result}}</span>
+<span class="label pull-right" ng-class="{ 
+    'label-success': reportItem.result == 'OK', 
+    'label-danger': reportItem.result == 'Error', 
+    'label-warning': reportItem.result == 'Pending', 
+    'label-default': reportItem.result == 'NotRun' }">
+    <span ng-if="!reportItem.exception">{{reportItem.result}}</span>
+    <span ng-if="reportItem.exception"
+        ng-click="showException()"
+        tooltip="{{reportItem.exception.message}}"
+        tooltip-placement="left"
+        tooltip-append-to-body="true">{{reportItem.result}}</span>
+</span>
