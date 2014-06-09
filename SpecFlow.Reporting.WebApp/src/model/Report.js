@@ -31,6 +31,7 @@
                         scenario.duration = getDuration(scenario);
                         scenario.feature = feature;
 
+                        var stepNumber = 1;
                         
                         // Decorate scenario blocks
                         var scenarioblockMap = _.pick(scenario, ['given', 'when', 'then']);
@@ -47,6 +48,7 @@
                                 step.feature = feature;
                                 step.scenario = scenario;
                                 step.scenarioBlock = scenarioBlock;
+                                step.number = stepNumber++;
                             });
                         });
                     });
