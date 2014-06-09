@@ -13,6 +13,7 @@ describe('report', function () {
         var allItems = _.union(
             report.features,
             report.scenarios,
+            report.scenarioBlocks,
             report.steps
         );
 

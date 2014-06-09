@@ -6,39 +6,48 @@
             function Report(reportData) {
                 this.reportData = reportData;
 
+                // Create a grouped property for each report item type
                 this.features = reportData.features;
                 this.scenarios = _.flatten(reportData.features, 'scenarios');
-                this.steps = _.reduce(this.scenarios, function (result, scenario) {
-                    result.push.apply(result, scenario.given.steps);
-                    result.push.apply(result, scenario.when.steps);
-                    result.push.apply(result, scenario.then.steps);
+                this.scenarioBlocks = _.reduce(this.scenarios, function(result, scenario) {
+                    result.push(scenario.given);
+                    result.push(scenario.when);
+                    result.push(scenario.then);
+                    return result;
+                }, []);
+                this.steps = _.reduce(this.scenarioBlocks, function(result, scenarioBlock) {
+                    result.push.apply(result, scenarioBlock.steps);
                     return result;
                 }, []);
 
+                // Decorate features
                 _.forEach(this.reportData.features, function (feature, index) {
                     feature.id = generateId([feature.title]);
                     feature.duration = getDuration(feature);
 
+                    // Decorate scenarios
                     _.forEach(feature.scenarios, function(scenario, index) {
                         scenario.id = generateId([feature.title, scenario.title]);
                         scenario.duration = getDuration(scenario);
+                        scenario.feature = feature;
 
-                        scenario.given.duration = getDuration(scenario.given);
-                        _.forEach(scenario.given.steps, function(step, index) {
-                            step.id = generateId([feature.title, scenario.title, 'given', index]);
-                            step.duration = getDuration(step);
-                        });
+                        
+                        // Decorate scenario blocks
+                        var scenarioblockMap = _.pick(scenario, ['given', 'when', 'then']);
+                        _.forEach(scenarioblockMap, function(scenarioBlock, scenarioBlockType) {
+                            scenarioBlock.id = generateId([feature.title, scenario.title, scenarioBlockType]);
+                            scenarioBlock.duration = getDuration(scenarioBlock);
+                            scenarioBlock.feature = feature;
+                            scenarioBlock.scenario = scenario;
 
-                        scenario.when.duration = getDuration(scenario.when);
-                        _.forEach(scenario.when.steps, function(step, index) {
-                            step.id = generateId([feature.title, scenario.title, 'when', index]);
-                            step.duration = getDuration(step);
-                        });
-
-                        scenario.then.duration = getDuration(scenario.then);
-                        _.forEach(scenario.then.steps, function(step, index) {
-                            step.id = generateId([feature.title, scenario.title, 'then', index]);
-                            step.duration = getDuration(step);
+                            // Decorate steps
+                            _.forEach(scenarioBlock.steps, function(step, index) {
+                                step.id = generateId([feature.title, scenario.title, scenarioBlockType, index]);
+                                step.duration = getDuration(step);
+                                step.feature = feature;
+                                step.scenario = scenario;
+                                step.scenarioBlock = scenarioBlock;
+                            });
                         });
                     });
                 });
