@@ -49,6 +49,13 @@
                                 step.scenario = scenario;
                                 step.scenarioBlock = scenarioBlock;
                                 step.number = stepNumber++;
+
+                                // Store step's exception on the scenario and scenarioblock.
+                                // Assume there can be only one exception in scenario
+                                if (step.exception) {
+                                    scenario.exception = step.exception;
+                                    scenarioBlock.exception = step.exception;
+                                }
                             });
                         });
                     });

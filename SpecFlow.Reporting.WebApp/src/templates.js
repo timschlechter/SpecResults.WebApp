@@ -10,7 +10,7 @@ angular.module('app').run(['$templateCache', function($templateCache) {
     "\n" +
     "    'label-warning': reportItem.result == 'Pending', \r" +
     "\n" +
-    "    'label-default': reportItem.result == 'NotRun' }\"><span ng-if=\"!reportItem.exception\">{{reportItem.result}}</span> <span ng-if=\"reportItem.exception\" ng-click=\"showException()\" tooltip=\"{{reportItem.exception.message}}\" tooltip-placement=\"left\" tooltip-append-to-body=\"true\">{{reportItem.result}}</span></span>"
+    "    'label-default': reportItem.result == 'NotRun' }\"><span ng-if=\"!reportItem.exception\">{{reportItem.result}}</span> <span ng-if=\"reportItem.exception\" ng-click=\"showException($event)\" tooltip=\"{{reportItem.exception.message}}\" tooltip-placement=\"left\" tooltip-append-to-body=\"true\">{{reportItem.result}}</span></span>"
   );
 
 

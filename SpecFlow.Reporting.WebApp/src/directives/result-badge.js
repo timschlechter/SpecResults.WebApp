@@ -10,7 +10,13 @@
                 'reportItem': '='
             },
             link: function($scope, element, attrs) {
-                $scope.showException = function() {
+                $scope.showException = function(event) {
+
+                    if (event) {
+                        event.stopPropagation();
+                        event.preventDefault();
+                    }
+
                     var modalInstance = $modal.open({
                         templateUrl: 'templates/exception-details-modal.tpl.html',
                         size: 'lg',

@@ -5,7 +5,7 @@
     'label-default': reportItem.result == 'NotRun' }">
     <span ng-if="!reportItem.exception">{{reportItem.result}}</span>
     <span ng-if="reportItem.exception"
-        ng-click="showException()"
+        ng-click="showException($event)"
         tooltip="{{reportItem.exception.message}}"
         tooltip-placement="left"
         tooltip-append-to-body="true">{{reportItem.result}}</span>
