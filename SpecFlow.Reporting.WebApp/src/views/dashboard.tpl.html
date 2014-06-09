@@ -8,7 +8,14 @@
             <div class="collapse navbar-collapse">
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text"
+                            class="form-control"
+                            placeholder="Search"
+                            ng-model="querystring"
+                            typeahead="item as item.title for item in report.searchIndex | filter:$viewValue | limitTo:8"
+                            typeahead-template-url="templates/typeahead-search.tpl.html"
+                            typeahead-editable="true"
+                            typeahead-on-select="selectSearchResult($item, $model, $label)">
                     </div>
                 </form>
             </div>
@@ -29,7 +36,7 @@
 
                 <h3>Scenarios</h3>
                 <div class="list-group">
-                    <a ng-repeat="scenario in feature.scenarios|orderBy:'title'" class="list-group-item" href="#/features/{{feature.id|encodeURIComponent}}/scenarios/{{scenario.id|encodeURIComponent}}">
+                    <a ng-repeat="scenario in feature.scenarios|orderBy:'title'" class="list-group-item" href="#/features/{{feature.id}}/scenarios/{{scenario.id}}">
 						{{scenario.title}} <small class="text-muted"><em>completed in {{scenario.duration}} ms</em></small>
 						<result-badge report-item="scenario"></result-badge>
 					</a>

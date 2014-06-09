@@ -20,16 +20,25 @@
                     return result;
                 }, []);
 
+                this.reportItems = _.union(
+                    this.features,
+                    this.scenarios,
+                    this.scenarioBlocks,
+                    this.steps
+                );
+
                 // Decorate features
                 _.forEach(this.reportData.features, function (feature, index) {
                     feature.id = generateId([feature.title]);
                     feature.duration = getDuration(feature);
+                    feature.type = 'feature';
 
                     // Decorate scenarios
                     _.forEach(feature.scenarios, function(scenario, index) {
                         scenario.id = generateId([feature.title, scenario.title]);
                         scenario.duration = getDuration(scenario);
-                        scenario.feature = feature;
+                        scenario.featureId = feature.id;
+                        scenario.type = 'scenario';
 
                         var stepNumber = 1;
                         
@@ -38,17 +47,19 @@
                         _.forEach(scenarioblockMap, function(scenarioBlock, scenarioBlockType) {
                             scenarioBlock.id = generateId([feature.title, scenario.title, scenarioBlockType]);
                             scenarioBlock.duration = getDuration(scenarioBlock);
-                            scenarioBlock.feature = feature;
-                            scenarioBlock.scenario = scenario;
+                            scenarioBlock.featureId = feature.id;
+                            scenarioBlock.scenarioId = scenario.id;
+                            scenarioBlock.type = 'scenarioBlock';
 
                             // Decorate steps
                             _.forEach(scenarioBlock.steps, function(step, index) {
                                 step.id = generateId([feature.title, scenario.title, scenarioBlockType, index]);
                                 step.duration = getDuration(step);
-                                step.feature = feature;
-                                step.scenario = scenario;
-                                step.scenarioBlock = scenarioBlock;
+                                step.featureId = feature.id;
+                                step.scenarioId = scenario.id;
+                                step.scenarioBlockId = scenarioBlock.id;
                                 step.number = stepNumber++;
+                                step.type = 'step';
 
                                 // Store step's exception on the scenario and scenarioblock.
                                 // Assume there can be only one exception in scenario
@@ -60,6 +71,32 @@
                         });
                     });
                 });
+
+                // Build search index
+                this.searchIndex = _.map(this.scenarios, function(scenario) {
+                    var feature = this.findFeatureById(scenario.featureId);
+                    var scenarioblockMap = _.pick(scenario, ['given', 'when', 'then']);
+
+                    return {
+                        feature: {
+                            id: feature.id,
+                            title: feature.title,
+                            description: feature.description,
+                            tags: feature.tags
+                        },
+                        scenario: {
+                            id: scenario.id,
+                            title: scenario.title,
+                            tags: scenario.tags,
+                            result: scenario.result
+                        },
+                        steps: _.union(
+                            scenario.given.steps,
+                            scenario.when.steps,
+                            scenario.then.steps
+                        )
+                    };
+                }, this);
             }
 
             function getDuration(item) {

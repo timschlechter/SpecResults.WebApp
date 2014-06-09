@@ -62,6 +62,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SpecFlow.Reporting.0.5.0.15\lib\net40\SpecFlow.Reporting.dll</HintPath>
     </Reference>
+    <Reference Include="SpecFlow.Reporting.Json, Version=0.5.0.13, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SpecFlow.Reporting.Json.0.5.0.13\lib\net40\SpecFlow.Reporting.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -123,6 +127,20 @@
   <ItemGroup>
     <None Include="src\templates\exception-details-modal.tpl.html" />
     <None Include="src\values\gherkin-i18n.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\state.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test\unit\karma.conf.js" />
+    <None Include="test\unit\mocks\report-data.js" />
+    <None Include="test\unit\Report.tests.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="test\e2e\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\templates\typeahead-search.tpl.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
