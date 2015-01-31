@@ -1,0 +1,19 @@
+<div class="modal-header">
+	<h3 class="modal-title">Exception details</h3>
+</div>
+<div class="modal-body">
+	<dl class="dl-horizontal">
+		<dt>Message</dt>
+		<dd>{{exception.message}}</dd>
+		<dt>Type</dt>
+		<dd>{{exception.exception_type}}</dd>
+		<dt>Source</dt>
+		<dd>{{exception.source}}</dd>
+		<dt>Stack trace</dt>
+		<dd>
+			<pre>{{exception.stack_trace}}</pre></dd>
+	</dl>
+</div>
+<div class="modal-footer ng-scope">
+	<button class="btn btn-primary" ng-click="ok()">Close</button>
+</div>
