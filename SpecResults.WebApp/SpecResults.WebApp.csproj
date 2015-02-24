@@ -59,11 +59,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SpecResults">
-      <HintPath>..\packages\SpecResults.0.1.0.0\lib\net40\SpecResults.dll</HintPath>
+    <Reference Include="SpecResults, Version=0.1.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SpecResults.0.1.0.6\lib\net40\SpecResults.dll</HintPath>
     </Reference>
-    <Reference Include="SpecResults.Json">
-      <HintPath>..\packages\SpecResults.Json.0.1.0.0\lib\net40\SpecResults.Json.dll</HintPath>
+    <Reference Include="SpecResults.Json, Version=0.1.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SpecResults.Json.0.1.0.6\lib\net40\SpecResults.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

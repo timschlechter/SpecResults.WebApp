@@ -40,8 +40,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="SpecResults">
-      <HintPath>..\packages\SpecResults.0.1.0.0\lib\net40\SpecResults.dll</HintPath>
+    <Reference Include="SpecResults, Version=0.1.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SpecResults.0.1.0.6\lib\net40\SpecResults.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

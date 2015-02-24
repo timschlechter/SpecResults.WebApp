@@ -90,8 +90,7 @@ namespace SpecResults.WebApp.Showcase
 		public void WhenIClickTheResultWithTitle(string title)
 		{
 			WebDriver.FindElements(By.TagName("a"))
-				.Where(a => a.Text == title)
-				.First()
+				.First(a => a.Text == title)
 				.Click();
 		}
 
