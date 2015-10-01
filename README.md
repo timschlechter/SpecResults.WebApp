@@ -38,3 +38,27 @@ public class StepDefinitions : ReportingStepDefinitions
 	}
 }	
 </pre>
+
+## Reading the report
+In order to browser the web app report, you must host the file into a web browser. Here is an example of hosting it with node.js. Simple go to the **app** folder and do the following :
+
+### Install connect and serve-static with NPM
+`
+$ npm install connect serve-static
+`
+
+### Create server.js file with this content:
+```javascript
+
+var connect = require('connect');
+var serveStatic = require('serve-static');
+connect().use(serveStatic(__dirname)).listen(8080);
+
+```
+
+### Run with Node.js
+`
+$ node server.js
+`
+
+You can now go to http://localhost:8080/yourfile.html
